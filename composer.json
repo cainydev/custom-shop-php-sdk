@@ -1,15 +1,15 @@
 {
-  "name": "billbee/custom-shop-api",
+  "name": "cainy/custom-shop-api",
   "description": "Implementation of the Billbee custom shop API in PHP",
   "type": "library",
+  "version": "3.1.0",
   "require": {
     "php": "^7.4 || ^8.0",
-    "psr/http-message": "^1.0",
+    "ext-json": "*",
+    "psr/http-message": "^2.0",
     "jms/serializer": "^1.14.0 || ^3.14.0",
     "ralouphie/getallheaders": "~3.0",
-    "mintware-de/streams": "^2.0.0",
-    "ext-json": "*",
-    "doctrine/annotations": "^2.0"
+    "mintware-de/streams": "^3.0.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0",

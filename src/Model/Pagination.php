@@ -12,26 +12,21 @@
 
 namespace Billbee\CustomShopApi\Model;
 
-use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 class Pagination
 {
-    /**
-     * @Serializer\SerializedName("page")
-     * @Serializer\Type("int")
-     */
+    #[SerializedName("page")]
+    #[Type("int")]
     public int $page = 1;
 
-    /**
-     * @Serializer\SerializedName("totalCount")
-     * @Serializer\Type("int")
-     */
+    #[SerializedName("totalCount")]
+    #[Type("int")]
     public int $totalCount = 0;
 
-    /**
-     * @Serializer\SerializedName("totalPages")
-     * @Serializer\Type("int")
-     */
+    #[SerializedName("totalPages")]
+    #[Type("int")]
     public int $totalPages = 0;
 
     public function __construct(int $page = 1, int $pageSize = 100, int $totalCount = 0)

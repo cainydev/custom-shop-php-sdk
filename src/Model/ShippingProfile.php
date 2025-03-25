@@ -12,20 +12,17 @@
 
 namespace Billbee\CustomShopApi\Model;
 
-use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 class ShippingProfile
 {
-    /**
-     * @Serializer\SerializedName("Id")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("Id")]
+    #[Type("string")]
     public ?string $id = null;
 
-    /**
-     * @Serializer\SerializedName("Name")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("Name")]
+    #[Type("string")]
     public ?string $name = null;
 
     public function __construct(?string $id = null, ?string $name = null)

@@ -12,26 +12,21 @@
 
 namespace Billbee\CustomShopApi\Model;
 
-use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 class ProductImage
 {
-    /**
-     * @Serializer\SerializedName("url")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("url")]
+    #[Type("string")]
     public ?string $url = null;
 
-    /**
-     * @Serializer\SerializedName("isDefault")
-     * @Serializer\Type("bool")
-     */
+    #[SerializedName("isDefault")]
+    #[Type("bool")]
     public bool $isDefault = false;
 
-    /**
-     * @Serializer\SerializedName("Position")
-     * @Serializer\Type("int")
-     */
+    #[SerializedName("Position")]
+    #[Type("int")]
     public ?int $position = null;
 
     public function getUrl(): ?string

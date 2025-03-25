@@ -50,7 +50,7 @@ class Uri implements UriInterface
 
 
     /** @inheritDoc */
-    public function getScheme()
+    public function getScheme(): string
     {
         return $this->scheme;
     }
@@ -68,37 +68,37 @@ class Uri implements UriInterface
     }
 
     /** @inheritDoc */
-    public function getHost()
+    public function getHost(): string
     {
         return $this->host;
     }
 
     /** @inheritDoc */
-    public function getPort()
+    public function getPort(): ?int
     {
         return $this->port;
     }
 
     /** @inheritDoc */
-    public function getPath()
+    public function getPath(): string
     {
         return $this->path;
     }
 
     /** @inheritDoc */
-    public function getQuery()
+    public function getQuery(): string
     {
         return $this->query;
     }
 
     /** @inheritDoc */
-    public function getFragment()
+    public function getFragment(): string
     {
         return $this->fragment;
     }
 
     /** @inheritDoc */
-    public function withScheme($scheme)
+    public function withScheme($scheme): UriInterface
     {
         $uri = clone $this;
         $uri->scheme = $scheme;
@@ -106,7 +106,7 @@ class Uri implements UriInterface
     }
 
     /** @inheritDoc */
-    public function withUserInfo($user, $password = null)
+    public function withUserInfo($user, $password = null): UriInterface
     {
         $uri = clone $this;
         $uri->userInfo = implode(':', array_filter([$user, $password]));
@@ -114,7 +114,7 @@ class Uri implements UriInterface
     }
 
     /** @inheritDoc */
-    public function withHost($host)
+    public function withHost($host): UriInterface
     {
         $uri = clone $this;
         $uri->host = $host;
@@ -122,7 +122,7 @@ class Uri implements UriInterface
     }
 
     /** @inheritDoc */
-    public function withPort($port)
+    public function withPort($port): UriInterface
     {
         $uri = clone $this;
         $uri->port = (int)$port;
@@ -130,7 +130,7 @@ class Uri implements UriInterface
     }
 
     /** @inheritDoc */
-    public function withPath($path)
+    public function withPath($path): UriInterface
     {
         $uri = clone $this;
         $uri->path = $path;
@@ -138,7 +138,7 @@ class Uri implements UriInterface
     }
 
     /** @inheritDoc */
-    public function withQuery($query)
+    public function withQuery($query): UriInterface
     {
         $uri = clone $this;
         $uri->query = $query;
@@ -146,7 +146,7 @@ class Uri implements UriInterface
     }
 
     /** @inheritDoc */
-    public function withFragment($fragment)
+    public function withFragment($fragment): UriInterface
     {
         $uri = clone $this;
         $uri->fragment = $fragment;
@@ -154,7 +154,7 @@ class Uri implements UriInterface
     }
 
     /** @inheritDoc */
-    public function __toString()
+    public function __toString(): string
     {
         $url = '';
         if (!empty($this->scheme)) {

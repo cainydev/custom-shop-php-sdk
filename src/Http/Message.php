@@ -21,7 +21,7 @@ use Psr\Http\Message\StreamInterface;
  */
 abstract class Message implements MessageInterface
 {
-    protected string $protocolVersion = "1.1";
+    protected string $protocolVersion = "2.0";
 
     /** @var array<array<string>> */
     protected array $headers = [];
@@ -43,7 +43,7 @@ abstract class Message implements MessageInterface
      * @inheritDoc
      * @phpstan-return T
      */
-    public function withProtocolVersion($version)
+    public function withProtocolVersion($version): MessageInterface
     {
         /** @var T $request */
         $request = clone $this;
@@ -59,19 +59,7 @@ abstract class Message implements MessageInterface
     }
 
     /** @inheritDoc */
-    public function hasHeader($name)
-    {
-        return isset($this->headers[$name]);
-    }
-
-    /** @inheritDoc */
-    public function getHeader($name)
-    {
-        return $this->headers[$name] ?? [];
-    }
-
-    /** @inheritDoc */
-    public function getHeaderLine($name)
+    public function getHeaderLine($name): string
     {
         $line = "";
 
@@ -84,11 +72,32 @@ abstract class Message implements MessageInterface
         return $line;
     }
 
+    /** @inheritDoc */
+    public function hasHeader($name): bool
+    {
+        return isset($this->headers[$name]);
+    }
+
+    /** @inheritDoc */
+    public function getHeader($name): array
+    {
+        return $this->headers[$name] ?? [];
+    }
+
     /**
      * @inheritDoc
      * @phpstan-return T
      */
-    public function withHeader($name, $value)
+    public function withAddedHeader($name, $value): MessageInterface
+    {
+        return $this->withHeader($name, $value);
+    }
+
+    /**
+     * @inheritDoc
+     * @phpstan-return T
+     */
+    public function withHeader($name, $value): MessageInterface
     {
         /** @var T $request */
         $request = clone $this;
@@ -102,16 +111,7 @@ abstract class Message implements MessageInterface
      * @inheritDoc
      * @phpstan-return T
      */
-    public function withAddedHeader($name, $value)
-    {
-        return $this->withHeader($name, $value);
-    }
-
-    /**
-     * @inheritDoc
-     * @phpstan-return T
-     */
-    public function withoutHeader($name)
+    public function withoutHeader($name): MessageInterface
     {
         /** @var T $request */
         $request = clone $this;
@@ -123,7 +123,7 @@ abstract class Message implements MessageInterface
         return $request;
     }
 
-    public function getBody(): ?StreamInterface
+    public function getBody(): StreamInterface
     {
         return $this->body;
     }
@@ -132,7 +132,7 @@ abstract class Message implements MessageInterface
      * @inheritDoc
      * @phpstan-return T
      */
-    public function withBody(StreamInterface $body)
+    public function withBody(StreamInterface $body): MessageInterface
     {
         /** @var T $request */
         $request = clone $this;

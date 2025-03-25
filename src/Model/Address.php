@@ -12,68 +12,49 @@
 
 namespace Billbee\CustomShopApi\Model;
 
-use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 class Address
 {
-    /**
-     * @Serializer\SerializedName("firstname")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("firstname")]
+    #[Type("string")]
     public ?string $firstName = null;
 
-    /**
-     * @Serializer\SerializedName("lastname")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("lastname")]
+    #[Type("string")]
     public ?string $lastName = null;
 
-    /**
-     * @Serializer\SerializedName("street")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("street")]
+    #[Type("string")]
     public ?string $street = null;
 
-    /**
-     * @Serializer\SerializedName("housenumber")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("housenumber")]
+    #[Type("string")]
     public ?string $houseNumber = null;
 
-    /**
-     * @Serializer\SerializedName("address2")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("address2")]
+    #[Type("string")]
     public ?string $address2 = null;
 
-    /**
-     * @Serializer\SerializedName("postcode")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("postcode")]
+    #[Type("string")]
     public ?string $postcode = null;
 
-    /**
-     * @Serializer\SerializedName("city")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("city")]
+    #[Type("string")]
     public ?string $city = null;
 
-    /**
-     * @Serializer\SerializedName("country_code")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("country_code")]
+    #[Type("string")]
     public ?string $countryCode = null;
 
-    /**
-     * @Serializer\SerializedName("company")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("company")]
+    #[Type("string")]
     public ?string $company = null;
 
-    /**
-     * @Serializer\SerializedName("state")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("state")]
+    #[Type("string")]
     public ?string $state = null;
 
     public function getFirstName(): ?string

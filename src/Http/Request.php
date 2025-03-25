@@ -70,7 +70,7 @@ class Request extends Message implements RequestInterface
      * @inheritDoc
      * @param string $requestTarget
      */
-    public function withRequestTarget($requestTarget)
+    public function withRequestTarget(string $requestTarget): RequestInterface
     {
         $request = clone $this;
 
@@ -86,7 +86,7 @@ class Request extends Message implements RequestInterface
     }
 
     /** @inheritDoc */
-    public function withMethod($method)
+    public function withMethod($method): RequestInterface
     {
         $request = clone $this;
 
@@ -102,7 +102,7 @@ class Request extends Message implements RequestInterface
     }
 
     /** @inheritDoc */
-    public function withUri(UriInterface $uri, $preserveHost = false)
+    public function withUri(UriInterface $uri, $preserveHost = false): RequestInterface
     {
         $request = clone $this;
 

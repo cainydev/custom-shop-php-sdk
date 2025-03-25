@@ -30,19 +30,20 @@ class Response extends Message implements ResponseInterface
     protected string $reasonPhrase = 'OK';
 
     /**
-     * @param StreamInterface|string|null $body
+     * @param string|StreamInterface|null $body
      * @param int $statusCode
      * @param string $reasonPhrase
      * @param array<array<string>> $headers
      * @param string $protocolVersion
      */
     public function __construct(
-        $body = null,
-        int $statusCode = 200,
-        string $reasonPhrase = 'OK',
-        array $headers = [],
-        string $protocolVersion = '1.1'
-    ) {
+        StreamInterface|string $body = null,
+        int                    $statusCode = 200,
+        string                 $reasonPhrase = 'OK',
+        array                  $headers = [],
+        string                 $protocolVersion = '1.1'
+    )
+    {
         parent::__construct();
         if ($body instanceof StreamInterface) {
             $this->body = $body;
@@ -56,7 +57,7 @@ class Response extends Message implements ResponseInterface
     }
 
     /**
-     * @param mixed $data
+     * @param mixed|null $data
      * @param int $statusCode
      * @param string $reasonPhrase
      * @param array<array<string>> $headers
@@ -64,12 +65,13 @@ class Response extends Message implements ResponseInterface
      * @return Response
      */
     public static function json(
-        $data = null,
-        int $statusCode = 200,
+        mixed  $data = null,
+        int    $statusCode = 200,
         string $reasonPhrase = 'OK',
-        array $headers = [],
+        array  $headers = [],
         string $protocolVersion = '1.1'
-    ): Response {
+    ): Response
+    {
         $builder = SerializerBuilder::create();
 
         if (class_exists('\JMS\Serializer\Visitor\Factory\JsonSerializationVisitorFactory')) {
@@ -88,59 +90,48 @@ class Response extends Message implements ResponseInterface
     }
 
     /**
-     * @param StreamInterface|string|null $body
+     * @param string|StreamInterface|null $body
      * @param array<array<string>> $headers
      * @param string $protocolVersion
      * @return Response
      */
     public static function notFound(
-        $body = null,
-        array $headers = [],
-        string $protocolVersion = '1.1'
-    ): Response {
+        StreamInterface|string $body = null,
+        array                  $headers = [],
+        string                 $protocolVersion = '1.1'
+    ): Response
+    {
         return new Response($body, 404, 'Not Found', $headers, $protocolVersion);
     }
 
     /**
-     * @param StreamInterface|string|null $body
+     * @param string|StreamInterface|null $body
      * @param array<array<string>> $headers
      * @param string $protocolVersion
      * @return Response
      */
     public static function unauthorized(
-        $body = null,
-        array $headers = [],
-        string $protocolVersion = '1.1'
-    ): Response {
+        StreamInterface|string $body = null,
+        array                  $headers = [],
+        string                 $protocolVersion = '1.1'
+    ): Response
+    {
         return new Response($body, 401, 'Unauthorized', $headers, $protocolVersion);
     }
 
     /**
-     * @param StreamInterface|string|null $body
+     * @param string|StreamInterface|null $body
      * @param array<array<string>> $headers
      * @param string $protocolVersion
      * @return Response
      */
     public static function forbidden(
-        $body = null,
-        array $headers = [],
-        string $protocolVersion = '1.1'
-    ): Response {
+        StreamInterface|string $body = null,
+        array                  $headers = [],
+        string                 $protocolVersion = '1.1'
+    ): Response
+    {
         return new Response($body, 403, 'Forbidden', $headers, $protocolVersion);
-    }
-
-    /**
-     * @param StreamInterface|string|null $body
-     * @param array<array<string>> $headers
-     * @param string $protocolVersion
-     * @return Response
-     */
-    public static function badRequest(
-        $body = null,
-        array $headers = [],
-        string $protocolVersion = '1.1'
-    ): Response {
-        return new Response($body, 400, 'Bad Request', $headers, $protocolVersion);
     }
 
     public static function notImplemented(): Response
@@ -149,16 +140,32 @@ class Response extends Message implements ResponseInterface
     }
 
     /**
-     * @param StreamInterface|string|null $body
+     * @param string|StreamInterface|null $body
+     * @param array<array<string>> $headers
+     * @param string $protocolVersion
+     * @return Response
+     */
+    public static function badRequest(
+        StreamInterface|string $body = null,
+        array                  $headers = [],
+        string                 $protocolVersion = '1.1'
+    ): Response
+    {
+        return new Response($body, 400, 'Bad Request', $headers, $protocolVersion);
+    }
+
+    /**
+     * @param string|StreamInterface|null $body
      * @param array<array<string>> $headers
      * @param string $protocolVersion
      * @return Response
      */
     public static function internalServerError(
-        $body = null,
-        array $headers = [],
-        string $protocolVersion = '1.1'
-    ): Response {
+        StreamInterface|string $body = null,
+        array                  $headers = [],
+        string                 $protocolVersion = '1.1'
+    ): Response
+    {
         return new Response($body, 500, 'Internal Server Error', $headers, $protocolVersion);
     }
 
@@ -191,7 +198,7 @@ class Response extends Message implements ResponseInterface
     }
 
     /** @inheritDoc */
-    public function withStatus($code, $reasonPhrase = '')
+    public function withStatus($code, $reasonPhrase = ''): ResponseInterface
     {
         $response = clone $this;
         $response->statusCode = $code;

@@ -12,125 +12,88 @@
 
 namespace Billbee\CustomShopApi\Model;
 
-use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 class Product
 {
-    /**
-     * @Serializer\SerializedName("material")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("material")]
+    #[Type("string")]
     public ?string $material = null;
 
-    /**
-     * @Serializer\SerializedName("shortdescription")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("shortdescription")]
+    #[Type("string")]
     public ?string $shortDescription = null;
 
-    /**
-     * @Serializer\SerializedName("basic_attributes")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("basic_attributes")]
+    #[Type("string")]
     public ?string $basicAttributes = null;
 
-    /**
-     * @Serializer\SerializedName("description")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("description")]
+    #[Type("string")]
     public ?string $description = null;
 
-    /**
-     * @Serializer\SerializedName("id")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("id")]
+    #[Type("string")]
     public ?string $id = null;
 
-    /**
-     * @var ?ProductImage[]
-     * @Serializer\SerializedName("images")
-     * @Serializer\Type("array<Billbee\CustomShopApi\Model\ProductImage>")
-     */
+    /** @var ?ProductImage[] */
+    #[SerializedName("images")]
+    #[Type("array<Billbee\CustomShopApi\Model\ProductImage>")]
     public ?array $images = null;
 
-    /**
-     * @Serializer\SerializedName("title")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("title")]
+    #[Type("string")]
     public ?string $title = null;
 
-    /**
-     * @Serializer\SerializedName("price")
-     * @Serializer\Type("float")
-     */
+    #[SerializedName("price")]
+    #[Type("float")]
     public ?float $price = null;
 
-    /**
-     * @Serializer\SerializedName("quantity")
-     * @Serializer\Type("float")
-     */
+    #[SerializedName("quantity")]
+    #[Type("float")]
     public ?float $quantity = null;
 
-    /**
-     * @Serializer\SerializedName("sku")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("sku")]
+    #[Type("string")]
     public ?string $sku = null;
 
-    /**
-     * @Serializer\SerializedName("ean")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("ean")]
+    #[Type("string")]
     public ?string $ean = null;
 
-    /**
-     * @Serializer\SerializedName("manufacturer")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("manufacturer")]
+    #[Type("string")]
     public ?string $manufacturer = null;
 
-    /**
-     * @var bool
-     * @Serializer\SerializedName("isdigital")
-     * @Serializer\Type("bool")
-     */
+    /** @var bool */
+    #[SerializedName("isdigital")]
+    #[Type("bool")]
     public bool $isDigital = false;
 
-    /**
-     * @Serializer\SerializedName("weight")
-     * @Serializer\Type("float")
-     */
+    #[SerializedName("weight")]
+    #[Type("float")]
     public ?float $weightInKg = null;
 
-    /**
-     * @Serializer\SerializedName("vat_rate")
-     * @Serializer\Type("float")
-     */
+    #[SerializedName("vat_rate")]
+    #[Type("float")]
     public ?float $vatRate = null;
 
-    /**
-     * @Serializer\SerializedName("lengthcm")
-     * @Serializer\Type("float")
-     */
+    #[SerializedName("lengthcm")]
+    #[Type("float")]
     public ?float $lengthInCm = null;
 
-    /**
-     * @Serializer\SerializedName("widthcm")
-     * @Serializer\Type("float")
-     */
+    #[SerializedName("widthcm")]
+    #[Type("float")]
     public ?float $widthInCm = null;
 
-    /**
-     * @Serializer\SerializedName("heightcm")
-     * @Serializer\Type("float")
-     */
+    #[SerializedName("heightcm")]
+    #[Type("float")]
     public ?float $heightInCm = null;
 
-    /**
-     * @var array<string, string>
-     * @Serializer\SerializedName("customfields")
-     * @Serializer\Type("array<string, string>")
-     */
+    /** @var array<string, string> */
+    #[SerializedName("customfields")]
+    #[Type("array<string, string>")]
     public ?array $customFields = null;
 
     public function getMaterial(): ?string

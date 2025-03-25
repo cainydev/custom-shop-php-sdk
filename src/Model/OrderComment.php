@@ -13,32 +13,25 @@
 namespace Billbee\CustomShopApi\Model;
 
 use DateTimeInterface;
-use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 class OrderComment
 {
-    /**
-     * @Serializer\SerializedName("date_added")
-     * @Serializer\Type("DateTime")
-     */
+    #[SerializedName("date_added")]
+    #[Type("DateTime")]
     public ?DateTimeInterface $dateAdded = null;
 
-    /**
-     * @Serializer\SerializedName("name")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("name")]
+    #[Type("string")]
     public ?string $name = null;
 
-    /**
-     * @Serializer\SerializedName("comment")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("comment")]
+    #[Type("string")]
     public ?string $comment = null;
 
-    /**
-     * @Serializer\SerializedName("from_customer")
-     * @Serializer\Type("bool")
-     */
+    #[SerializedName("from_customer")]
+    #[Type("bool")]
     public bool $fromCustomer = false;
 
     public function getDateAdded(): ?DateTimeInterface

@@ -12,57 +12,41 @@
 
 namespace Billbee\CustomShopApi\Model;
 
-use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 class OrderProduct
 {
-    /**
-     * @Serializer\SerializedName("discount_percent")
-     * @Serializer\Type("float")
-     */
+    #[SerializedName("discount_percent")]
+    #[Type("float")]
     public ?float $discountPercent = null;
 
-    /**
-     * @Serializer\SerializedName("quantity")
-     * @Serializer\Type("float")
-     */
+    #[SerializedName("quantity")]
+    #[Type("float")]
     public ?float $quantity = null;
 
-    /**
-     * @Serializer\SerializedName("unit_price")
-     * @Serializer\Type("float")
-     */
+    #[SerializedName("unit_price")]
+    #[Type("float")]
     public ?float $unitPrice = null;
 
-    /**
-     * @Serializer\SerializedName("product_id")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("product_id")]
+    #[Type("string")]
     public ?string $productId = null;
 
-    /**
-     * @Serializer\SerializedName("name")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("name")]
+    #[Type("string")]
     public ?string $name = null;
 
-    /**
-     * @Serializer\SerializedName("sku")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("sku")]
+    #[Type("string")]
     public ?string $sku = null;
 
-    /**
-     * @Serializer\SerializedName("tax_rate")
-     * @Serializer\Type("float")
-     */
+    #[SerializedName("tax_rate")]
+    #[Type("float")]
     public ?float $taxRate = null;
 
-    /**
-     * @var OrderProductOption[]
-     * @Serializer\SerializedName("options")
-     * @Serializer\Type("array<Billbee\CustomShopApi\Model\OrderProductOption>")
-     */
+    #[SerializedName("options")]
+    #[Type("array<Billbee\CustomShopApi\Model\OrderProductOption>")]
     public ?array $options = null;
 
     public function getDiscountPercent(): ?float

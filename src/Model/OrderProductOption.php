@@ -12,20 +12,17 @@
 
 namespace Billbee\CustomShopApi\Model;
 
-use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 class OrderProductOption
 {
-    /**
-     * @Serializer\SerializedName("name")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("name")]
+    #[Type("string")]
     public ?string $name;
 
-    /**
-     * @Serializer\SerializedName("value")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("value")]
+    #[Type("string")]
     public ?string $value;
 
     public function __construct(?string $name = null, ?string $value = null)

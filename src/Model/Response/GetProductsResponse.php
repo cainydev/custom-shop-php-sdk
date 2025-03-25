@@ -14,21 +14,17 @@ namespace Billbee\CustomShopApi\Model\Response;
 
 use Billbee\CustomShopApi\Model\Pagination;
 use Billbee\CustomShopApi\Model\Product;
-use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 class GetProductsResponse
 {
-    /**
-     * @Serializer\SerializedName("paging")
-     * @Serializer\Type("Billbee\CustomShopApi\Model\Pagination")
-     */
+    #[SerializedName("paging")]
+    #[Type("Billbee\CustomShopApi\Model\Pagination")]
     protected Pagination $paging;
 
-    /**
-     * @var array<Product>
-     * @Serializer\SerializedName("products")
-     * @Serializer\Type("array<Billbee\CustomShopApi\Model\Product>")
-     */
+    #[SerializedName("products")]
+    #[Type("array<Billbee\CustomShopApi\Model\Product>")]
     protected array $products = [];
 
     /**

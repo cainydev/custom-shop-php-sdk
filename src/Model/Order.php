@@ -13,136 +13,93 @@
 namespace Billbee\CustomShopApi\Model;
 
 use DateTimeInterface;
-use JMS\Serializer\Annotation as Serializer;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
 
 class Order
 {
-    /**
-     * @Serializer\SerializedName("order_id")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("order_id")]
+    #[Type("string")]
     public ?string $orderId = null;
 
-    /**
-     * @Serializer\SerializedName("order_number")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("order_number")]
+    #[Type("string")]
     public ?string $orderNumber = null;
 
-    /**
-     * @Serializer\SerializedName("currency_code")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("currency_code")]
+    #[Type("string")]
     public ?string $currencyCode = null;
 
-    /**
-     * @Serializer\SerializedName("delivery_source_country_code")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("delivery_source_country_code")]
+    #[Type("string")]
     public ?string $deliverySourceCountryCode = null;
 
-    /**
-     * @Serializer\SerializedName("nick_name")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("nick_name")]
+    #[Type("string")]
     public ?string $nickName = null;
 
-    /**
-     * @Serializer\SerializedName("ship_cost")
-     * @Serializer\Type("float")
-     */
+    #[SerializedName("ship_cost")]
+    #[Type("float")]
     public ?float $shipCost = null;
 
-    /**
-     * @Serializer\SerializedName("invoice_address")
-     * @Serializer\Type("Billbee\CustomShopApi\Model\Address")
-     */
+    #[SerializedName("invoice_address")]
+    #[Type("Billbee\CustomShopApi\Model\Address")]
     public ?Address $invoiceAddress = null;
 
-    /**
-     * @Serializer\SerializedName("delivery_address")
-     * @Serializer\Type("Billbee\CustomShopApi\Model\Address")
-     */
+    #[SerializedName("delivery_address")]
+    #[Type("Billbee\CustomShopApi\Model\Address")]
     public ?Address $deliveryAddress = null;
 
-    /**
-     * @Serializer\SerializedName("order_date")
-     * @Serializer\Type("DateTime")
-     */
+    #[SerializedName("order_date")]
+    #[Type("DateTime")]
     public ?DateTimeInterface $orderDate = null;
 
-    /**
-     * @Serializer\SerializedName("email")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("email")]
+    #[Type("string")]
     public ?string $email = null;
 
-    /**
-     * @Serializer\SerializedName("phone1")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("phone1")]
+    #[Type("string")]
     public ?string $phone1 = null;
 
-    /**
-     * @Serializer\SerializedName("pay_date")
-     * @Serializer\Type("DateTime")
-     */
+    #[SerializedName("pay_date")]
+    #[Type("DateTime")]
     public ?DateTimeInterface $payDate = null;
 
-    /**
-     * @Serializer\SerializedName("ship_date")
-     * @Serializer\Type("DateTime")
-     */
+    #[SerializedName("ship_date")]
+    #[Type("DateTime")]
     public ?DateTimeInterface $shipDate = null;
 
-    /**
-     * @Serializer\SerializedName("payment_method")
-     * @Serializer\Type("int")
-     */
+    #[SerializedName("payment_method")]
+    #[Type("int")]
     public ?int $paymentMethod = null;
 
-    /**
-     * @Serializer\SerializedName("order_status_id")
-     * @Serializer\Type("int")
-     */
+    #[SerializedName("order_status_id")]
+    #[Type("int")]
     public ?int $statusId = null;
 
-    /**
-     * @var ?OrderProduct[]
-     * @Serializer\SerializedName("order_products")
-     * @Serializer\Type("array<Billbee\CustomShopApi\Model\OrderProduct>")
-     */
+    #[SerializedName("order_products")]
+    #[Type("array<Billbee\CustomShopApi\Model\OrderProduct>")]
     public ?array $items = null;
 
-    /**
-     * @var ?OrderComment[]
-     * @Serializer\SerializedName("order_history")
-     * @Serializer\Type("array<Billbee\CustomShopApi\Model\OrderComment>")
-     */
+    #[SerializedName("order_history")]
+    #[Type("array<Billbee\CustomShopApi\Model\OrderComment>")]
     public ?array $comments = null;
 
-    /**
-     * @Serializer\SerializedName("seller_comment")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("seller_comment")]
+    #[Type("string")]
     public ?string $sellerComment = null;
 
-    /**
-     * @Serializer\SerializedName("shippingprofile_id")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("shippingprofile_id")]
+    #[Type("string")]
     public ?string $shippingProfileId = null;
 
-    /**
-     * @Serializer\SerializedName("vat_id")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("vat_id")]
+    #[Type("string")]
     public ?string $vatId = null;
 
-    /**
-     * @Serializer\SerializedName("payment_transaction_id")
-     * @Serializer\Type("string")
-     */
+    #[SerializedName("payment_transaction_id")]
+    #[Type("string")]
     public ?string $paymentTransactionId = null;
 
     public function getOrderId(): ?string

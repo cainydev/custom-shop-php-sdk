@@ -24,7 +24,7 @@ class MessageTraitTest extends TestCase
         /** @var Message<RequestInterface> $mock */
         $mock = $this->getMockForAbstractClass(Message::class);
 
-        $this->assertSame('1.1', $mock->getProtocolVersion());
+        $this->assertSame('2.0', $mock->getProtocolVersion());
         $this->assertSame([], $mock->getHeaders());
         $this->assertNotNull($mock->getBody());
     }

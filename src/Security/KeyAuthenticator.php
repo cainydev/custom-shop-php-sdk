@@ -32,17 +32,16 @@ class KeyAuthenticator implements AuthenticatorInterface
         }
 
         $shortenedTimestamp = substr((string)time(), 0, 7);
-        $hash = hash_hmac('sha256', utf8_encode($this->key), utf8_encode($shortenedTimestamp));
+        $encodedKey = mb_convert_encoding($this->key, 'UTF-8', 'ISO-8859-1');
+        $encodedTimestamp = mb_convert_encoding($shortenedTimestamp, 'UTF-8', 'ISO-8859-1');
+        $hash = hash_hmac('sha256', $encodedKey, $encodedTimestamp);
         $encodedHash = base64_encode($hash);
         $calculatedKey = str_replace(['=', '/', '+'], '', $encodedHash);
 
         return $calculatedKey == $sentKey;
     }
 
-    /**
-     * @return string
-     */
-    public function getKey()
+    public function getKey(): string
     {
         return $this->key;
     }

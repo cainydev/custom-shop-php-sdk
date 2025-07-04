@@ -72,7 +72,9 @@ class KeyAuthenticatorTest extends TestCase
     public function testIsAuthorizedValidKey(): void
     {
         $shortenedTimestamp = substr((string)time(), 0, 7);
-        $hash = hash_hmac('sha256', utf8_encode('1234'), utf8_encode($shortenedTimestamp));
+        $encodedKey = mb_convert_encoding('1234', 'UTF-8', 'ISO-8859-1');
+        $encodedTimestamp = mb_convert_encoding($shortenedTimestamp, 'UTF-8', 'ISO-8859-1');
+        $hash = hash_hmac('sha256', $encodedKey, $encodedTimestamp);
         $encodedHash = base64_encode($hash);
         $calculatedKey = str_replace(['=', '/', '+'], '', $encodedHash);
 

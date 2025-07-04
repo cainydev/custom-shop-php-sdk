@@ -2,7 +2,7 @@
   "name": "cainy/custom-shop-api",
   "description": "Implementation of the Billbee custom shop API in PHP",
   "type": "library",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "require": {
     "php": "^7.4 || ^8.0",
     "ext-json": "*",
